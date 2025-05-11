@@ -9,8 +9,11 @@ lahore-luxie/
 ├── backend/
 │   ├── main.py (FastAPI backend)
 │   └── uploads/ (media storage directory)
+├── images/
+│   └── zelle-qr.svg (Payment QR code)
 ├── index.html (Frontend)
 ├── server.js (Express server for deployment)
+├── deploy-local.sh (Deployment script for local server)
 ├── package.json (Node.js dependencies)
 └── README.md (This file)
 ```
@@ -21,6 +24,7 @@ lahore-luxie/
 - pip (Python package manager)
 - Node.js 14+ (for deployment)
 - npm (Node.js package manager)
+- SSH and rsync (for deployment to local server)
 
 ## Setup Instructions
 
@@ -62,34 +66,41 @@ npm start
 - `GET /media/{category}`: Get media items by category
 - `DELETE /media/{media_id}`: Delete a media item
 
-## Deployment Options
+## Deployment to Local Server
 
-### GitHub Pages
+The project includes a deployment script for a local server at `192.168.4.151`:
 
-This repository is configured to automatically deploy to GitHub Pages using GitHub Actions. Simply push to the main branch, and the site will be deployed.
+1. Make sure you have SSH access to the server:
+```bash
+ssh newgen@192.168.4.151
+```
 
-### Vercel
+2. Ensure Node.js and npm are installed on the server.
 
-To deploy to Vercel:
+3. Optionally, install PM2 on the server for process management:
+```bash
+npm install -g pm2
+```
 
-1. Fork this repository
-2. Connect it to your Vercel account
-3. Vercel will automatically detect the configuration in `vercel.json`
-4. Deploy!
+4. Run the deployment script:
+```bash
+./deploy-local.sh
+```
 
-### Heroku
+5. Access your website at `http://192.168.4.151:3000`
 
-To deploy to Heroku:
+### Customizing Local Deployment
 
-1. Create a new Heroku app
-2. Connect your GitHub repository
-3. Enable automatic deploys or manually deploy from the main branch
-4. The included `Procfile` will instruct Heroku how to run the application
+If needed, you can modify the `deploy-local.sh` script to adjust:
+- User and server IP address
+- Deployment path on the server
+- Node.js binary path
+- Other deployment preferences
 
 ## Production Considerations
 
 - Replace the in-memory storage with a proper database
 - Add user authentication for upload/delete operations
-- Use cloud storage for media files
-- Implement proper security measures
-- Add pagination for the media endpoints 
+- Use secure HTTPS connections
+- Configure proper backups
+- Add logging and monitoring 
