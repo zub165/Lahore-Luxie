@@ -834,7 +834,7 @@
             if (description) formData.append('description', description);
             
             try {
-                const response = await fetch('http://192.168.4.151:8000/upload/', {
+                const response = await fetch('http://192.168.4.151:5000/upload/', {
                     method: 'POST',
                     body: formData
                 });
@@ -858,7 +858,7 @@
         // Function to load gallery items
         async function loadGallery() {
             try {
-                const response = await fetch('http://192.168.4.151:8000/media/');
+                const response = await fetch('http://192.168.4.151:5000/media/');
                 if (!response.ok) throw new Error('Failed to load gallery');
                 
                 const mediaItems = await response.json();
@@ -876,13 +876,13 @@
                     
                     if (item.type === 'image') {
                         galleryItem.innerHTML = `
-                            <img src="http://192.168.4.151:8000/uploads/${item.filename}" alt="${item.description || item.category}">
+                            <img src="http://192.168.4.151:5000/uploads/${item.filename}" alt="${item.description || item.category}">
                             <span class="item-category">${item.category}</span>
                         `;
                     } else {
                         galleryItem.innerHTML = `
                             <video controls>
-                                <source src="http://192.168.4.151:8000/uploads/${item.filename}" type="video/mp4">
+                                <source src="http://192.168.4.151:5000/uploads/${item.filename}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             <span class="item-category">${item.category}</span>
