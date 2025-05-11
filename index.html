@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lahore Luxie - Premium Fashion & Home Decor</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #8b4513;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            background-color: #8b4513;
+        }
+        
+        nav ul li {
+            position: relative;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 25px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: #a0522d;
+        }
+        
+        /* Dropdown Menu */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1200x400');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8b4513;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #a0522d;
+        }
+        
+        /* Product Categories */
+        .categories {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #8b4513;
+        }
+        
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .category-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .category-info {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .category-info h3 {
+            margin-bottom: 10px;
+            color: #8b4513;
+        }
+        
+        /* Upload Section */
+        .upload-section {
+            background-color: white;
+            padding: 60px 0;
+            margin: 40px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .upload-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            border: 2px dashed #8b4513;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .upload-title {
+            margin-bottom: 20px;
+            color: #8b4513;
+        }
+        
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group select, 
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .upload-btn {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .upload-btn:hover {
+            background-color: #a0522d;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 60px 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .gallery-item img, 
+        .gallery-item video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover img,
+        .gallery-item:hover video {
+            transform: scale(1.05);
+        }
+        
+        .item-category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(139, 69, 19, 0.8);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            color: #8b4513;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #8b4513;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: #8b4513;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .dropdown-content {
+                position: static;
+                display: none;
+            }
+            
+            .dropdown:hover .dropdown-content {
+                display: none;
+            }
+            
+            .dropdown.active .dropdown-content {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">LAHORE LUXIE</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#categories">Categories</a>
+                        <div class="dropdown-content">
+                            <a href="#men">Men</a>
+                            <a href="#women">Women</a>
+                            <a href="#bedding">Bedding</a>
+                            <a href="#home-decor">Home Decor</a>
+                        </div>
+                    </li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#upload">Upload</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Premium Fashion & Home Decor</h1>
+            <p>Discover the finest collection of clothing and home furnishings</p>
+            <a href="#categories" class="btn">Explore Collections</a>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Our Categories</h2>
+            <div class="category-grid">
+                <div class="category-card" id="men">
+                    <div class="category-img" style="background-image: url('https://via.placeholder.com/300x200?text=Men');"></div>
+                    <div class="category-info">
+                        <h3>Men's Collection</h3>
+                        <p>Elegant and stylish outfits for men</p>
+                    </div>
+                </div>
+                <div class="category-card" id="women">
+                    <div class="category-img" style="background-image: url('https://via.placeholder.com/300x200?text=Women');"></div>
+                    <div class="category-info">
+                        <h3>Women's Collection</h3>
+                        <p>Beautiful and fashionable dresses</p>
+                    </div>
+                </div>
+                <div class="category-card" id="bedding">
+                    <div class="category-img" style="background-image: url('https://via.placeholder.com/300x200?text=Bedding');"></div>
+                    <div class="category-info">
+                        <h3>Bedding</h3>
+                        <p>Luxurious bedding for your home</p>
+                    </div>
+                </div>
+                <div class="category-card" id="home-decor">
+                    <div class="category-img" style="background-image: url('https://via.placeholder.com/300x200?text=Home+Decor');"></div>
+                    <div class="category-info">
+                        <h3>Home Decor</h3>
+                        <p>Enhance your living space</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Upload Section -->
+    <section class="upload-section" id="upload">
+        <div class="container">
+            <h2 class="section-title">Share Your Style</h2>
+            <div class="upload-container">
+                <h3 class="upload-title">Upload Your Photos & Videos</h3>
+                <form class="upload-form" id="uploadForm">
+                    <div class="form-group">
+                        <label for="category">Select Category:</label>
+                        <select id="category" name="category" required>
+                            <option value="">-- Select a category --</option>
+                            <option value="men">Men's Collection</option>
+                            <option value="women">Women's Collection</option>
+                            <option value="bedding">Bedding</option>
+                            <option value="home-decor">Home Decor</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mediaUpload">Upload Photo or Video:</label>
+                        <input type="file" id="mediaUpload" name="mediaUpload" accept="image/*, video/*" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">Description (Optional):</label>
+                        <input type="text" id="description" name="description" placeholder="Brief description...">
+                    </div>
+                    
+                    <button type="submit" class="upload-btn">Upload</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Our Gallery</h2>
+            <div class="gallery-grid">
+                <!-- Sample gallery items - these would be dynamically loaded in a real application -->
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Men's+Fashion" alt="Men's Fashion">
+                    <span class="item-category">Men</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Women's+Dress" alt="Women's Dress">
+                    <span class="item-category">Women</span>
+                </div>
+                <div class="gallery-item">
+                    <video controls>
+                        <source src="#" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <span class="item-category">Home Decor</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Luxury+Bedding" alt="Luxury Bedding">
+                    <span class="item-category">Bedding</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Home+Accessories" alt="Home Accessories">
+                    <span class="item-category">Home Decor</span>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/300x250?text=Men's+Accessories" alt="Men's Accessories">
+                    <span class="item-category">Men</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>About Lahore Luxie</h3>
+                    <p>Premium fashion and home decor brand offering high-quality products with traditional and contemporary designs.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#upload">Upload</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@lahoreluxie.com</p>
+                    <p>Phone: +92 300 1234567</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook">f</i></a>
+                        <a href="#"><i class="fab fa-instagram">i</i></a>
+                        <a href="#"><i class="fab fa-twitter">t</i></a>
+                        <a href="#"><i class="fab fa-pinterest">p</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Lahore Luxie. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple form handling for demonstration
+        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const category = document.getElementById('category').value;
+            const fileInput = document.getElementById('mediaUpload');
+            const description = document.getElementById('description').value;
+            
+            if (!category || !fileInput.files.length) {
+                alert('Please select a category and upload a file.');
+                return;
+            }
+            
+            // In a real application, you would upload the file to a server here
+            alert('Thank you for your submission! Your ' + category + ' content has been received.');
+            
+            // Reset the form
+            this.reset();
+        });
+        
+        // Mobile dropdown menu functionality
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
