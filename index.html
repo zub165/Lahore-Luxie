@@ -338,13 +338,188 @@
             color: #aaa;
         }
         
+        /* Payment Section */
+        .payment-section {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+        
+        .payment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .payment-methods {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .payment-method {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .payment-method h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+        
+        .payment-method p {
+            margin-bottom: 10px;
+        }
+        
+        .payment-method .btn {
+            margin-top: 15px;
+            display: inline-block;
+        }
+        
+        .qr-code {
+            margin: 15px auto;
+            max-width: 150px;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background-color: white;
+            border-radius: 4px;
+        }
+        
+        .qr-code img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background-color: #f9f9f9;
+            padding: 60px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info h3 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .business-hours {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .business-hours h4 {
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+        
+        .contact-form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-form-container h3 {
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .contact-form {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 0;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .contact-form textarea {
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #a0522d;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .payment-methods {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
         @media (max-width: 768px) {
             .category-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
             
             .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-methods {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-container {
                 grid-template-columns: 1fr;
             }
             
@@ -386,6 +561,7 @@
                     </li>
                     <li><a href="#gallery">Gallery</a></li>
                     <li><a href="#upload">Upload</a></li>
+                    <li><a href="#payment">Payment</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -509,6 +685,95 @@
         </div>
     </section>
     
+    <!-- Payment Section -->
+    <section class="payment-section" id="payment">
+        <div class="container">
+            <h2 class="section-title">Payment Options</h2>
+            <div class="payment-container">
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <h3>Bank Transfer</h3>
+                        <p>Account Name: Lahore Luxie</p>
+                        <p>Account Number: 1234567890</p>
+                        <p>Bank: ABC Bank</p>
+                        <p>Branch: Lahore Main Branch</p>
+                    </div>
+                    <div class="payment-method">
+                        <h3>Zelle</h3>
+                        <p>Fast, secure, and free way to send money</p>
+                        <div class="qr-code">
+                            <img src="images/zelle-qr.svg" alt="Zelle QR Code">
+                        </div>
+                        <p>Send payment to: <strong>info@lahoreluxie.com</strong></p>
+                        <p>Add your order number in the memo</p>
+                    </div>
+                    <div class="payment-method">
+                        <h3>Online Payment</h3>
+                        <p>Pay securely through our online payment gateway</p>
+                        <a href="https://paymentgateway.com/lahoreluxie" class="btn" target="_blank">Pay Now</a>
+                    </div>
+                    <div class="payment-method">
+                        <h3>Cash on Delivery</h3>
+                        <p>Available for orders within Lahore</p>
+                        <p>Additional fee of PKR 100 applies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p><i class="contact-icon">&#x1F4E7;</i> <strong>Email:</strong> 
+                        <a href="mailto:sales@lahoreluxie.com">sales@lahoreluxie.com</a>
+                    </p>
+                    <p><i class="contact-icon">&#x1F4DE;</i> <strong>Phone:</strong> 
+                        <a href="tel:+923001234567">+92 300 1234567</a>
+                    </p>
+                    <p><i class="contact-icon">&#x1F4F1;</i> <strong>WhatsApp:</strong> 
+                        <a href="https://wa.me/923001234567">+92 300 1234567</a>
+                    </p>
+                    <p><i class="contact-icon">&#x1F4CD;</i> <strong>Address:</strong> 
+                        123 Fashion Street, Lahore, Pakistan
+                    </p>
+                    <div class="business-hours">
+                        <h4>Business Hours</h4>
+                        <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                        <p>Saturday: 10:00 AM - 4:00 PM</p>
+                        <p>Sunday: Closed</p>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <h3>Send us a Message</h3>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer id="contact">
         <div class="container">
@@ -524,17 +789,21 @@
                         <li><a href="#categories">Categories</a></li>
                         <li><a href="#gallery">Gallery</a></li>
                         <li><a href="#upload">Upload</a></li>
+                        <li><a href="#payment">Payment</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Contact Us</h3>
-                    <p>Email: info@lahoreluxie.com</p>
-                    <p>Phone: +92 300 1234567</p>
+                    <p>Email: <a href="mailto:sales@lahoreluxie.com">sales@lahoreluxie.com</a></p>
+                    <p>Customer Support: <a href="mailto:support@lahoreluxie.com">support@lahoreluxie.com</a></p>
+                    <p>Phone: <a href="tel:+923001234567">+92 300 1234567</a></p>
+                    <p>WhatsApp: <a href="https://wa.me/923001234567">+92 300 1234567</a></p>
+                    <p>Address: 123 Fashion Street, Lahore, Pakistan</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook">f</i></a>
-                        <a href="#"><i class="fab fa-instagram">i</i></a>
-                        <a href="#"><i class="fab fa-twitter">t</i></a>
-                        <a href="#"><i class="fab fa-pinterest">p</i></a>
+                        <a href="https://facebook.com/lahoreluxie" target="_blank"><i class="fab fa-facebook">f</i></a>
+                        <a href="https://instagram.com/lahoreluxie" target="_blank"><i class="fab fa-instagram">i</i></a>
+                        <a href="https://twitter.com/lahoreluxie" target="_blank"><i class="fab fa-twitter">t</i></a>
+                        <a href="https://pinterest.com/lahoreluxie" target="_blank"><i class="fab fa-pinterest">p</i></a>
                     </div>
                 </div>
             </div>
@@ -545,8 +814,8 @@
     </footer>
     
     <script>
-        // Simple form handling for demonstration
-        document.getElementById('uploadForm').addEventListener('submit', function(e) {
+        // Update the upload form handler
+        document.getElementById('uploadForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const category = document.getElementById('category').value;
@@ -558,13 +827,77 @@
                 return;
             }
             
-            // In a real application, you would upload the file to a server here
-            alert('Thank you for your submission! Your ' + category + ' content has been received.');
+            const formData = new FormData();
+            formData.append('category', category);
+            formData.append('file', fileInput.files[0]);
+            if (description) formData.append('description', description);
             
-            // Reset the form
-            this.reset();
+            try {
+                const response = await fetch('http://localhost:8000/upload/', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Upload failed');
+                }
+                
+                const result = await response.json();
+                alert('Upload successful!');
+                this.reset();
+                
+                // Refresh gallery
+                loadGallery();
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Upload failed. Please try again.');
+            }
         });
-        
+
+        // Function to load gallery items
+        async function loadGallery() {
+            try {
+                const response = await fetch('http://localhost:8000/media/');
+                if (!response.ok) throw new Error('Failed to load gallery');
+                
+                const mediaItems = await response.json();
+                const galleryGrid = document.querySelector('.gallery-grid');
+                
+                // Clear existing items (except the first few placeholder items)
+                while (galleryGrid.children.length > 6) {
+                    galleryGrid.removeChild(galleryGrid.lastChild);
+                }
+                
+                // Add new items
+                mediaItems.forEach(item => {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    
+                    if (item.type === 'image') {
+                        galleryItem.innerHTML = `
+                            <img src="http://localhost:8000/uploads/${item.filename}" alt="${item.description || item.category}">
+                            <span class="item-category">${item.category}</span>
+                        `;
+                    } else {
+                        galleryItem.innerHTML = `
+                            <video controls>
+                                <source src="http://localhost:8000/uploads/${item.filename}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <span class="item-category">${item.category}</span>
+                        `;
+                    }
+                    
+                    galleryGrid.appendChild(galleryItem);
+                });
+            } catch (error) {
+                console.error('Error loading gallery:', error);
+            }
+        }
+
+        // Load gallery on page load
+        document.addEventListener('DOMContentLoaded', loadGallery);
+
         // Mobile dropdown menu functionality
         const dropdowns = document.querySelectorAll('.dropdown');
         
@@ -577,6 +910,28 @@
                     dropdown.classList.toggle('active');
                 }
             });
+        });
+
+        // Contact form functionality
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !email || !subject || !message) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // In a real application, you would send this data to your server
+            // For now, we'll just show a success message
+            alert('Thank you for your message! We will get back to you soon.');
+            
+            // Reset the form
+            this.reset();
         });
     </script>
 </body>
