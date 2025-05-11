@@ -10,6 +10,8 @@ lahore-luxie/
 │   ├── main.py (FastAPI backend)
 │   └── uploads/ (media storage directory)
 ├── index.html (Frontend)
+├── server.js (Express server for deployment)
+├── package.json (Node.js dependencies)
 └── README.md (This file)
 ```
 
@@ -17,6 +19,8 @@ lahore-luxie/
 
 - Python 3.7+
 - pip (Python package manager)
+- Node.js 14+ (for deployment)
+- npm (Node.js package manager)
 
 ## Setup Instructions
 
@@ -33,9 +37,14 @@ pip install fastapi uvicorn python-multipart
 uvicorn backend.main:app --reload
 ```
 
-3. Open the frontend:
+3. For local development:
    - Simply open the `index.html` file in a web browser, or
-   - Use a local development server to serve it
+   - Use the included Express server:
+
+```bash
+npm install
+npm start
+```
 
 ## Features
 
@@ -43,6 +52,8 @@ uvicorn backend.main:app --reload
 - **Gallery View**: View all uploaded media items with proper categorization
 - **Responsive Design**: Works on desktop and mobile devices
 - **Category Filtering**: Backend supports filtering media by category
+- **Payment Options**: Multiple payment methods including Zelle with QR code
+- **Contact Form**: Comprehensive contact section with form submission
 
 ## API Endpoints
 
@@ -50,6 +61,30 @@ uvicorn backend.main:app --reload
 - `GET /media/`: Get all media items
 - `GET /media/{category}`: Get media items by category
 - `DELETE /media/{media_id}`: Delete a media item
+
+## Deployment Options
+
+### GitHub Pages
+
+This repository is configured to automatically deploy to GitHub Pages using GitHub Actions. Simply push to the main branch, and the site will be deployed.
+
+### Vercel
+
+To deploy to Vercel:
+
+1. Fork this repository
+2. Connect it to your Vercel account
+3. Vercel will automatically detect the configuration in `vercel.json`
+4. Deploy!
+
+### Heroku
+
+To deploy to Heroku:
+
+1. Create a new Heroku app
+2. Connect your GitHub repository
+3. Enable automatic deploys or manually deploy from the main branch
+4. The included `Procfile` will instruct Heroku how to run the application
 
 ## Production Considerations
 
